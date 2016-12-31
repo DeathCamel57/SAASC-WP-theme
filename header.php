@@ -1,3 +1,11 @@
+<?php
+// Remove this before merging...
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,24 +20,51 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
     
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="<?php bloginfo('template_directory');?>/includes/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether.min.css" integrity="sha256-y4TDcAD4/j5o4keZvggf698Cr9Oc7JZ+gGMax23qmVA=" crossorigin="anonymous" />
+    <?php wp_head(); ?>
     
-	<?php wp_head(); ?>
+    <!-- REMOVE BEFORE MOVING TO MASTER BRANCH -->
+    <script src=""></script>   
 </head>
 <!-- body_class() injects classes that are built in to Wordpress -->
 <body <?php body_class(); ?> >
+    <!-- Include Google Fonts... -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 
-<!-- Wrap the entire front end and a wrapper -->
-<div id="site-wrapper">
+    <!-- Wrap the entire front end and a wrapper -->
+    <div id="site-wrapper">
 
-<header>
-	<h1><?php bloginfo('name'); ?></h1>	
-</header>
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+        <a class="navbar-brand text-center" href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>
+            <ul class="nav navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="<?php bloginfo('url'); ?>">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">About us</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Meetings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+        </li>
+        </ul>
+    </nav>
+
+    <!-- Top Section -->
+    <div class="container-fullwidth header">
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="header-maintext text-center"><?php bloginfo('name'); ?></h1>
+                <p><?php bloginfo('description'); ?></p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content container -->
+    <div class="container">

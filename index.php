@@ -1,15 +1,5 @@
-<?php
-/**
- * The main template file. 
- * 
- * Loads all of the different post types. If post type is standard, format.php runs.
- * 
- * @package awesome
- */
-
-?>
-
 <?php get_header(); ?>
+
 <!-- This div for the blog/archive/single section of the theme -->
 <div class="pure-g">
 	<div class="pure-u-1 pure-u-md-1">
@@ -39,11 +29,8 @@
 
 		</main>
 
-
-<?php bloginfo('template_directory');?>
 	</div><!-- 	pure-u-md-1 -->
 </div> <!-- pure-g -->
-
 
 <?php get_sidebar(); ?>
 

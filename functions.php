@@ -68,29 +68,8 @@ function tt_theme_scripts() {
 	/**
 	 *  Register and enqueue Custom JS file
 	 */
-	wp_register_script( 'custom_js', get_template_directory_uri() . '/includes/js/custom.js', false, false, true );
+	wp_register_script( 'custom_js', get_template_directory_uri() . '/includes/js/custom.js', false, null, true );
 	wp_enqueue_script( 'custom_js' );
-
-
-	/**
-	 *  Load Pure CSS
-	 */
-	wp_register_style( 'pure_css', get_template_directory_uri() . '/bower_components/pure/pure-min.css', false, false );
-	wp_enqueue_style( 'pure_css' );
-
-
-	/**
-	 *  Load Grids Responsive
-	 */
-	wp_register_style( 'grids_responsive', get_template_directory_uri() . '/bower_components/pure/grids-responsive-min.css', false, false );
-	wp_enqueue_style( 'grids_responsive' );
-
-	/**
-	 *  Load Font-Awesome
-	 */
-	wp_register_style( 'font_awesome', get_template_directory_uri() . '/bower_components/font-awesome-bower/css/font-awesome.css', false, false );
-	wp_enqueue_style( 'font_awesome' );
-
 
 	/**
 	 *  Register and enqueue Custrom CSS
