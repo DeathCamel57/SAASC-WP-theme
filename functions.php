@@ -1,13 +1,6 @@
 <?php 
 
 /************************************************************
- *  Functions for the theme
- * 	@package awesome
-************************************************************/
-
-
-
-/************************************************************
  * Setup default parts of the theme (menues, post types etc)
 ***********************************************************/
 function tt_theme_setup() {
@@ -49,9 +42,6 @@ add_action('after_setup_theme', 'tt_theme_setup');
 ************************************************************/
 include get_template_directory() . "/includes/themetacular/themetacular_init.php";
 
-
-
-
 /************************************************************
  * 	Load all Javascipt and CSS files
 ************************************************************/
@@ -79,39 +69,36 @@ function tt_theme_scripts() {
 
 }
 
-
 add_action('wp_enqueue_scripts','tt_theme_scripts');
-
-
-
 
 /************************************************************
 	Silly 404 Excuse
 ************************************************************/
 
-	function exclamation() {
+function exclamation() {
 
-		$excuse_array = ['By the hammer of Thor!','Well bake my potatoes!','By Jango!','Twist my nipple nuts and send me to Alaska'];
-		$array_size = count($excuse_array) -1;
-		$random_number = rand(0,$array_size);
+    $excuse_array = ['By the hammer of Thor!','Well bake my potatoes!','By Jango!','Twist my nipple nuts and send me to Alaska'];
+    $array_size = count($excuse_array) -1;
+    $random_number = rand(0,$array_size);
 
-		echo $excuse_array[$random_number];
-	}
+    echo $excuse_array[$random_number];
+}
 
-	function exclamation_descrtiption() {
+function exclamation_descrtiption() {
 
-		$excuse_array = ['By the hammer of Thor!','Well bake my potatoes!','By Jango!','Twist my nipple nuts and send me to Alaska'];
-		$array_size = count($excuse_array) -1;
-		$random_number = rand(0,$array_size);
+    $excuse_array = ['By the hammer of Thor!','Well bake my potatoes!','By Jango!','Twist my nipple nuts and send me to Alaska'];
+    $array_size = count($excuse_array) -1;
+    $random_number = rand(0,$array_size);
 
-		echo $excuse_array[$random_number];
-	}
+    echo $excuse_array[$random_number];
+}
 
+/************************************************************
+	Silly 404 Excuse
+************************************************************/
+function register_menues() {
+  register_nav_menu('header-menu',__( 'Navigation Links' ));
+}
+add_action( 'init', 'register_menues' );
 
-
-
-
-
-
-
-	?>
+?>

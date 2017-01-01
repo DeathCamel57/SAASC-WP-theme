@@ -37,23 +37,14 @@ header("Pragma: no-cache");
     <!-- Wrap the entire front end and a wrapper -->
     <div id="site-wrapper">
 
-    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-        <a class="navbar-brand text-center" href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a>
-            <ul class="nav navbar-nav">
-        <li class="nav-item active">
-            <a class="nav-link" href="<?php bloginfo('url'); ?>">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">About us</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Meetings</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-        </li>
-        </ul>
-    </nav>
+    <!-- Navigation Menu -->
+    <?php wp_nav_menu(array(
+        'container' => 'nav',
+        'container_class' => 'navbar navbar-fixed-top navbar-dark bg-inverse',
+        'theme_location' => 'header-menu',
+        'items_wrap' => '<li class="nav-item"><a class="nav-link %2$s" href="#">%3$s</a></li>'
+    ));
+    ?>
 
     <!-- Top Section -->
     <div class="container-fullwidth header">
