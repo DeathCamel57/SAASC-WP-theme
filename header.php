@@ -25,9 +25,7 @@ header("Pragma: no-cache");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether.min.css" integrity="sha256-y4TDcAD4/j5o4keZvggf698Cr9Oc7JZ+gGMax23qmVA=" crossorigin="anonymous" />
     <?php wp_head(); ?>
-    
-    <!-- REMOVE BEFORE MOVING TO MASTER BRANCH -->
-    <script src=""></script>   
+     
 </head>
 <!-- body_class() injects classes that are built in to Wordpress -->
 <body <?php body_class(); ?> >
@@ -45,8 +43,7 @@ header("Pragma: no-cache");
         <div class="jumbotron">
             <div class="container">
                 <h1 class="header-maintext text-center"><?php bloginfo('name'); ?></h1>
-                <p><?php bloginfo('description'); ?></p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+                <p class="text-center"><?php bloginfo('description'); ?></p>
             </div>
         </div>
     </div>
