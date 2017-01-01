@@ -36,6 +36,55 @@ function tt_theme_setup() {
 
 add_action('after_setup_theme', 'tt_theme_setup');
 
+/* To create a Bootstrap 4 Alpha Menu, call "create_bootstrap_menu(menu)" */
+function create_bootstrap_menu( $theme_location ) {
+    if ( ($theme_location) && ($locations = get_nav_menu_locations()) && isset($locations[$theme_location]) ) {
+         
+        $menu_list  = '<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">' ."\n";
+        $menu_list .= '<div class="container">' ."\n";
+        $menu_list .= '<a class="navbar-brand" href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>';
+           
+        $menu_list .= '<!-- Collect the nav links, forms, and other content for toggling -->';
+         
+         
+        $menu = get_term( $locations[$theme_location], 'nav_menu' );
+        $menu_items = wp_get_nav_menu_items($menu->term_id);
+ 
+        $menu_list .= '<ul class="nav navbar-nav">' ."\n";
+          
+        foreach( $menu_items as $menu_item ) {
+            if( $menu_item->menu_item_parent == 0 ) {
+                 
+                $parent = $menu_item->ID;
+                 
+                $menu_array = array();
+                foreach( $menu_items as $submenu ) {
+                    if( $submenu->menu_item_parent == $parent ) {
+                        $bool = true;
+                        $menu_array[] = '<li><a href="' . $submenu->url . '" class="navbar-brand">' . $submenu->title . '</a></li>' ."\n";
+                    }
+                }
+                $menu_list .= '<li class="nav-item">' ."\n";
+                $menu_list .= '<a href="' . $menu_item->url . '" class="nav-link">' . $menu_item->title . '</a>' ."\n";
+                 
+            }
+             
+            // end <li>
+            $menu_list .= '</li>' ."\n";
+        }
+          
+        $menu_list .= '</ul>' ."\n";
+        $menu_list .= '</div>' ."\n";
+        $menu_list .= '</div><!-- /.container -->' ."\n";
+        $menu_list .= '</nav>' ."\n";
+  
+    } else {
+        $menu_list = '<!-- no menu defined in location "'.$theme_location.'" -->';
+    }
+     
+    echo $menu_list;
+}
+
 
 /************************************************************
  * Load themetacular specific files

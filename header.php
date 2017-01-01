@@ -36,15 +36,9 @@ header("Pragma: no-cache");
 
     <!-- Wrap the entire front end and a wrapper -->
     <div id="site-wrapper">
-
+        
     <!-- Navigation Menu -->
-    <?php wp_nav_menu(array(
-        'container' => 'nav',
-        'container_class' => 'navbar navbar-fixed-top navbar-dark bg-inverse',
-        'theme_location' => 'header-menu',
-        'items_wrap' => '<li class="nav-item"><a class="nav-link %2$s" href="#">%3$s</a></li>'
-    ));
-    ?>
+    <?php create_bootstrap_menu('header-menu'); ?>
 
     <!-- Top Section -->
     <div class="container-fullwidth header">
