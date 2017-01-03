@@ -5,9 +5,8 @@
         <div class="container-fullwidth footer-container">
            <div class="container footer">
                 <div class="col-md-4 footer-column">
-                    <div class="footer-text-heading">Left</div>
-                    <div class="footer-text-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum incidunt totam corrupti, odit cumque commodi corporis laborum aspernatur voluptatum, aliquam ullam sequi fuga amet, id iste! Beatae vitae obcaecati autem.</div>
-                </div>
+                    <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Left\ Footer')): endif; ?>
+               </div>
                 <div class="col-md-4 footer-column">
                     <div class="footer-text-heading">Middle</div>
                     <div class="footer-text-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum incidunt totam corrupti, odit cumque commodi corporis laborum aspernatur voluptatum, aliquam ullam sequi fuga amet, id iste! Beatae vitae obcaecati autem.</div>
@@ -15,6 +14,9 @@
                 <div class="col-md-4 footer-column">
                     <div class="footer-text-heading">Right</div>
                     <div class="footer-text-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum incidunt totam corrupti, odit cumque commodi corporis laborum aspernatur voluptatum, aliquam ullam sequi fuga amet, id iste! Beatae vitae obcaecati autem.</div>
+                </div>
+                <div class="cold-md-12">
+                    <p class="copyright">© Copyright <?php echo date("Y"); ?> | SAASC
                 </div>
             </div>
         </div>

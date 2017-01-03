@@ -1,6 +1,6 @@
 // General Colors
-$dark-col: #373a3c;
-$light-col: $dark-col + #999999;
+$dark-col: #2d3133;
+$light-col: $dark-col + #222222;
 $bg-col: #eaeaea;
 
 // Header
@@ -17,7 +17,7 @@ $footer-bg: $dark-col;
 $footer-margin-top: 25px;
 $footer-padding-top: 25px;
 $footer-padding-bottom: 25px;
-$footer-text-col: $light-col;
+$footer-text-col: $footer-bg + #555555;
 $footer-text-size: 16px;
 $footer-text-font: auto;
 $footer-text-heading-size: 24px;

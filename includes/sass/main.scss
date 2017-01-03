@@ -5,6 +5,10 @@ body {
     background-color: $bg-col;
 }
 
+p {
+    color: $light-col;
+}
+
 .jumbotron {
     $padding-bottom: 25px;
     $margin-bottom: 0px;
@@ -33,7 +37,7 @@ body {
 // Main Body Elements
 
 // Footer Elements
-.footer-container{
+.footer-container {
     background-color: $footer-bg;
     color: $footer-text-col;
     margin-top: $footer-margin-top;
@@ -49,4 +53,13 @@ body {
 .footer-text-normal {
     @include font-size($footer-text-size);
     font-family: $footer-text-font;
+}
+
+.textwidget {
+    @include font-size($footer-text-size);
+    font-family: $footer-text-font;
+}
+
+.copyright {
+    color: $footer-text-col;
 }

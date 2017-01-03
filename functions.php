@@ -31,7 +31,21 @@ function tt_theme_setup() {
 	 */
 
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
-
+    
+    /** 
+     * Theme footer stuff...
+     */
+    if (function_exists('register_sidebar')) {
+        register_sidebar(array(
+        'name' => 'Left Footer',
+        'id'   => 'footer-left',
+        'description'   => 'The left most footer section',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',	
+        'after_title'   => ''
+                ));
+    }
 }
 
 add_action('after_setup_theme', 'tt_theme_setup');
