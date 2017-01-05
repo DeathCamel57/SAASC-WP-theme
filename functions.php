@@ -78,7 +78,7 @@ add_action('after_setup_theme', 'tt_theme_setup');
 function create_bootstrap_menu( $theme_location ) {
     if ( ($theme_location) && ($locations = get_nav_menu_locations()) && isset($locations[$theme_location]) ) {
          
-        $menu_list  = '<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">' ."\n";
+        $menu_list  = '<nav class="navbar navbar-fixed-top navbar-custom">' ."\n";
         $menu_list .= '<div class="container">' ."\n";
         $menu_list .= '<a class="navbar-brand" href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>';
            

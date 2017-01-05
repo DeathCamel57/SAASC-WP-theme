@@ -6,10 +6,11 @@ body {
 }
 
 p {
-    color: $light-col;
+    color: $text-col;
 }
 
 .jumbotron {
+    background-color: $bg-col;
     $padding-bottom: 25px;
     $margin-bottom: 0px;
     padding-bottom: $padding-bottom;
@@ -22,8 +23,17 @@ p {
     @include font-size($header-maintext-size);
     color: $header-maintext-color;
 }
+
 .header-description {
     @include font-size($header-description-size);
+    color: $header-description-color;
+}
+
+.sow-headline {
+    color: $header-maintext-color;
+}
+
+.sow-sub-headline {
     color: $header-description-color;
 }
 
@@ -33,6 +43,17 @@ p {
 }
 
 // Header Elements
+.navbar-custom {
+    background-color: $dark-col;
+    color: #ffffff;
+    .navbar-brand {
+        color: #ffffff
+    }
+    .nav-link {
+        color: rgba(255,255,255,.5);
+    }
+}
+
 
 // Main Body Elements
 

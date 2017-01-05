@@ -3,10 +3,11 @@ body {
 }
 
 p {
-  color: #4f5355;
+  color: #656565;
 }
 
 .jumbotron {
+  background-color: #eaeaea;
   padding-bottom: 25px;
   padding-bottom: 1.5625rem;
   margin-bottom: 0px;
@@ -25,13 +26,32 @@ p {
   color: #656565;
 }
 
+.sow-headline {
+  color: #171717;
+}
+
+.sow-sub-headline {
+  color: #656565;
+}
+
 .text-center {
   text-align: center;
 }
 
+.navbar-custom {
+  background-color: #004181;
+  color: #ffffff;
+}
+.navbar-custom .navbar-brand {
+  color: #ffffff;
+}
+.navbar-custom .nav-link {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .footer-container {
-  background-color: #2d3133;
-  color: #828688;
+  background-color: #004181;
+  color: #5596d6;
   margin-top: 25px;
   padding-top: 25px;
   padding-bottom: 25px;
@@ -69,11 +89,11 @@ li {
 li a {
   font-size: 16px;
   font-size: 1rem;
-  color: #828688;
+  color: #5596d6;
 }
 
 .copyright {
-  color: #828688;
+  color: #5596d6;
   text-align: right;
 }
 
