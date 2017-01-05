@@ -45,6 +45,11 @@ p {
     padding-bottom: $footer-padding-bottom;
 }
 
+.footer-column {
+    @include font-size($footer-text-heading-size);
+    color: $footer-text-heading-size;
+}
+
 .footer-text-heading {
     @include font-size($footer-text-heading-size);
     font-family: $footer-text-heading-font;
@@ -60,6 +65,16 @@ p {
     font-family: $footer-text-font;
 }
 
+li {
+    list-style-type: none;
+    @include line-height($footer-text-size);
+    a {
+        @include font-size($footer-text-size);
+        color: $footer-text-col;
+    }
+}
+
 .copyright {
     color: $footer-text-col;
+    text-align: right;
 }

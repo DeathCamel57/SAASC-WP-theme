@@ -46,6 +46,30 @@ function tt_theme_setup() {
         'after_title'   => ''
                 ));
     }
+    
+    if (function_exists('register_sidebar')) {
+        register_sidebar(array(
+        'name' => 'Middle Footer',
+        'id'   => 'footer-middle',
+        'description'   => 'The middle footer section',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',	
+        'after_title'   => ''
+                ));
+    }
+    
+    if (function_exists('register_sidebar')) {
+        register_sidebar(array(
+        'name' => 'Right Footer',
+        'id'   => 'footer-right',
+        'description'   => 'The right most footer section',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',	
+        'after_title'   => ''
+                ));
+    }
 }
 
 add_action('after_setup_theme', 'tt_theme_setup');

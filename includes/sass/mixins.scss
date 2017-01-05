@@ -9,6 +9,12 @@
   font-size: calculateRem($size);
 }
 
+@mixin line-height($size) {
+    $extra-height: 5px;
+  line-height: $size + $extra-height;
+  line-height: calculateRem($size + $extra-height);
+}
+
 // Image Stuff...
 $image-path: '../img' !default;
 $fallback-extension: 'png' !default;
