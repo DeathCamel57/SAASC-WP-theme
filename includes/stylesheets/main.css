@@ -1,1 +1,100 @@
-html,body,button,input,select,textarea{font-size:87.5%}h1,h2,h3,h4,h5,h6{font-weight:700;line-height:1.5rem;margin-top:1.5rem;margin-bottom:10px}h1{font-size:4.242rem;line-height:4.5rem;margin-top:3rem}h2{font-size:2.828rem;line-height:3rem;margin-top:3rem}h3{font-size:1.414rem}h4{font-size:0.707rem}h5{font-size:0.47133rem}h6{font-size:0.3535rem}p,span{font-size:1.5rem}blockquote{line-height:1.5rem;margin-top:1.5rem;margin-bottom:1.5rem;padding-top:1.5rem;padding-bottom:1.5rem}code,kbd,tt,var{font:13px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace}a{-moz-transition:0.15s;-webkit-transition:0.15s;transition:0.15s}a:hover{text-decoration:none}ul{list-style:square}
+body {
+  background-color: #eaeaea;
+}
+
+p {
+  color: #656565;
+}
+
+.jumbotron {
+  background-color: #eaeaea;
+  padding-bottom: 25px;
+  padding-bottom: 1.5625rem;
+  margin-bottom: 0px;
+  margin-bottom: 0rem;
+}
+
+.header-maintext {
+  font-size: 72px;
+  font-size: 4.5rem;
+  color: #171717;
+}
+
+.header-description {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #656565;
+}
+
+.sow-headline {
+  color: #171717;
+}
+
+.sow-sub-headline {
+  color: #656565;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.navbar-custom {
+  background-color: #004181;
+  color: #ffffff;
+}
+.navbar-custom .navbar-brand {
+  color: #ffffff;
+}
+.navbar-custom .nav-link {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-container {
+  background-color: #004181;
+  color: #5596d6;
+  margin-top: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.footer-column {
+  font-size: 24px;
+  font-size: 1.5rem;
+  color: 24px;
+}
+
+.footer-text-heading {
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-family: "Playfair Display", serif;
+}
+
+.footer-text-normal {
+  font-size: 16px;
+  font-size: 1rem;
+  font-family: auto;
+}
+
+.textwidget {
+  font-size: 16px;
+  font-size: 1rem;
+  font-family: auto;
+}
+
+li {
+  list-style-type: none;
+  line-height: 21px;
+  line-height: 1.3125rem;
+}
+li a {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #5596d6;
+}
+
+.copyright {
+  color: #5596d6;
+  text-align: right;
+}
+
+/*# sourceMappingURL=main.css.map */

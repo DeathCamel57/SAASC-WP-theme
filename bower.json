@@ -1,11 +1,11 @@
 {
-  "name": "lukehayes",
+  "name": "SAASC-WP-theme",
   "version": "0.0.0",
   "authors": [
-    "lukehayes <lukepurplehayes@gmail.com>"
+    "DeathCamel57 <DeathCamel57@gmail.com>"
   ],
-  "description": "Bower for this Wordpress theme",
-  "license": "MIT",
+  "description": "Custom Wordpress theme for SAASC",
+  "license": "GNU General Public License v. 3",
   "ignore": [
     "**/.*",
     "node_modules",

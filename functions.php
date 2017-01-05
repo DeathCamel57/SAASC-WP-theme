@@ -1,13 +1,6 @@
 <?php 
 
 /************************************************************
- *  Functions for the theme
- * 	@package awesome
-************************************************************/
-
-
-
-/************************************************************
  * Setup default parts of the theme (menues, post types etc)
 ***********************************************************/
 function tt_theme_setup() {
@@ -38,19 +31,103 @@ function tt_theme_setup() {
 	 */
 
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
-
+    
+    /** 
+     * Theme footer stuff...
+     */
+    if (function_exists('register_sidebar')) {
+        register_sidebar(array(
+        'name' => 'Left Footer',
+        'id'   => 'footer-left',
+        'description'   => 'The left most footer section',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',	
+        'after_title'   => ''
+                ));
+    }
+    
+    if (function_exists('register_sidebar')) {
+        register_sidebar(array(
+        'name' => 'Middle Footer',
+        'id'   => 'footer-middle',
+        'description'   => 'The middle footer section',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',	
+        'after_title'   => ''
+                ));
+    }
+    
+    if (function_exists('register_sidebar')) {
+        register_sidebar(array(
+        'name' => 'Right Footer',
+        'id'   => 'footer-right',
+        'description'   => 'The right most footer section',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',	
+        'after_title'   => ''
+                ));
+    }
 }
 
 add_action('after_setup_theme', 'tt_theme_setup');
+
+/* To create a Bootstrap 4 Alpha Menu, call "create_bootstrap_menu(menu)" */
+function create_bootstrap_menu( $theme_location ) {
+    if ( ($theme_location) && ($locations = get_nav_menu_locations()) && isset($locations[$theme_location]) ) {
+         
+        $menu_list  = '<nav class="navbar navbar-fixed-top navbar-custom">' ."\n";
+        $menu_list .= '<div class="container">' ."\n";
+        $menu_list .= '<a class="navbar-brand" href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>';
+           
+        $menu_list .= '<!-- Collect the nav links, forms, and other content for toggling -->';
+         
+         
+        $menu = get_term( $locations[$theme_location], 'nav_menu' );
+        $menu_items = wp_get_nav_menu_items($menu->term_id);
+ 
+        $menu_list .= '<ul class="nav navbar-nav">' ."\n";
+          
+        foreach( $menu_items as $menu_item ) {
+            if( $menu_item->menu_item_parent == 0 ) {
+                 
+                $parent = $menu_item->ID;
+                 
+                $menu_array = array();
+                foreach( $menu_items as $submenu ) {
+                    if( $submenu->menu_item_parent == $parent ) {
+                        $bool = true;
+                        $menu_array[] = '<li><a href="' . $submenu->url . '" class="navbar-brand">' . $submenu->title . '</a></li>' ."\n";
+                    }
+                }
+                $menu_list .= '<li class="nav-item">' ."\n";
+                $menu_list .= '<a href="' . $menu_item->url . '" class="nav-link">' . $menu_item->title . '</a>' ."\n";
+                 
+            }
+             
+            // end <li>
+            $menu_list .= '</li>' ."\n";
+        }
+          
+        $menu_list .= '</ul>' ."\n";
+        $menu_list .= '</div>' ."\n";
+        $menu_list .= '</div><!-- /.container -->' ."\n";
+        $menu_list .= '</nav>' ."\n";
+  
+    } else {
+        $menu_list = '<!-- no menu defined in location "'.$theme_location.'" -->';
+    }
+     
+    echo $menu_list;
+}
 
 
 /************************************************************
  * Load themetacular specific files
 ************************************************************/
 include get_template_directory() . "/includes/themetacular/themetacular_init.php";
-
-
-
 
 /************************************************************
  * 	Load all Javascipt and CSS files
@@ -68,29 +145,8 @@ function tt_theme_scripts() {
 	/**
 	 *  Register and enqueue Custom JS file
 	 */
-	wp_register_script( 'custom_js', get_template_directory_uri() . '/includes/js/custom.js', false, false, true );
+	wp_register_script( 'custom_js', get_template_directory_uri() . '/includes/js/custom.js', false, null, true );
 	wp_enqueue_script( 'custom_js' );
-
-
-	/**
-	 *  Load Pure CSS
-	 */
-	wp_register_style( 'pure_css', get_template_directory_uri() . '/bower_components/pure/pure-min.css', false, false );
-	wp_enqueue_style( 'pure_css' );
-
-
-	/**
-	 *  Load Grids Responsive
-	 */
-	wp_register_style( 'grids_responsive', get_template_directory_uri() . '/bower_components/pure/grids-responsive-min.css', false, false );
-	wp_enqueue_style( 'grids_responsive' );
-
-	/**
-	 *  Load Font-Awesome
-	 */
-	wp_register_style( 'font_awesome', get_template_directory_uri() . '/bower_components/font-awesome-bower/css/font-awesome.css', false, false );
-	wp_enqueue_style( 'font_awesome' );
-
 
 	/**
 	 *  Register and enqueue Custrom CSS
@@ -100,39 +156,36 @@ function tt_theme_scripts() {
 
 }
 
-
 add_action('wp_enqueue_scripts','tt_theme_scripts');
-
-
-
 
 /************************************************************
 	Silly 404 Excuse
 ************************************************************/
 
-	function exclamation() {
+function exclamation() {
 
-		$excuse_array = ['By the hammer of Thor!','Well bake my potatoes!','By Jango!','Twist my nipple nuts and send me to Alaska'];
-		$array_size = count($excuse_array) -1;
-		$random_number = rand(0,$array_size);
+    $excuse_array = ['By the hammer of Thor!','Well bake my potatoes!','By Jango!','Twist my nipple nuts and send me to Alaska'];
+    $array_size = count($excuse_array) -1;
+    $random_number = rand(0,$array_size);
 
-		echo $excuse_array[$random_number];
-	}
+    echo $excuse_array[$random_number];
+}
 
-	function exclamation_descrtiption() {
+function exclamation_descrtiption() {
 
-		$excuse_array = ['By the hammer of Thor!','Well bake my potatoes!','By Jango!','Twist my nipple nuts and send me to Alaska'];
-		$array_size = count($excuse_array) -1;
-		$random_number = rand(0,$array_size);
+    $excuse_array = ['By the hammer of Thor!','Well bake my potatoes!','By Jango!','Twist my nipple nuts and send me to Alaska'];
+    $array_size = count($excuse_array) -1;
+    $random_number = rand(0,$array_size);
 
-		echo $excuse_array[$random_number];
-	}
+    echo $excuse_array[$random_number];
+}
 
+/************************************************************
+	Silly 404 Excuse
+************************************************************/
+function register_menues() {
+  register_nav_menu('header-menu',__( 'Navigation Links' ));
+}
+add_action( 'init', 'register_menues' );
 
-
-
-
-
-
-
-	?>
+?>

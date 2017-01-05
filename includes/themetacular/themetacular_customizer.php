@@ -91,6 +91,7 @@ add_action( 'customize_register', 'themetacular_customizer_settings' );
 /**************************************
 *   Add styles to head of theme
 ***************************************/
+/*
 function themetacular_customizer_styles()
 {
     ?>
@@ -103,5 +104,5 @@ function themetacular_customizer_styles()
 }
 
 add_action( 'wp_head', 'themetacular_customizer_styles');
-
+s
 ?>

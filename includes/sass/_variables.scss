@@ -1,21 +1,25 @@
+// General Colors
+$dark-col: #004181;
+$light-col: $dark-col + #222222;
+$bg-col: #eaeaea;
+$text-col: #656565;
 
-/*-----------------------------------------------------------------------------------*/
-/*	Typography
-/*-----------------------------------------------------------------------------------*/
+// Header
+$header-maintext-size: 72px;
+$header-maintext-color: #171717;
+$header-description-size: $header-maintext-size / 4.5;
+$header-description-color: #656565;
 
-$font: 14px/22px "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, Sans-serif;
-
-$main-typeface: "Open Sans";
-$heading-typeface: "Montserrat";
-
-/*-----------------------------------------------------------------------------------*/
-/*	Colours
-/*-----------------------------------------------------------------------------------*/
-$black: #333;
-$white: #FFF;
-$light-grey: #F2F2F2;
-$dark-grey: #1E1E1E;
-$text-grey: #898989;
-$accent: #ed3636;
+// Main Elements
 
 
+// Footer Elements
+$footer-bg: $dark-col;
+$footer-margin-top: 25px;
+$footer-padding-top: 25px;
+$footer-padding-bottom: 25px;
+$footer-text-col: $footer-bg + #555555;
+$footer-text-size: 16px;
+$footer-text-font: auto;
+$footer-text-heading-size: 24px;
+$footer-text-heading-font: 'Playfair Display', serif;
