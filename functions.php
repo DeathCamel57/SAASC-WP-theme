@@ -78,17 +78,21 @@ add_action('after_setup_theme', 'tt_theme_setup');
 function create_bootstrap_menu( $theme_location ) {
     if ( ($theme_location) && ($locations = get_nav_menu_locations()) && isset($locations[$theme_location]) ) {
          
-        $menu_list  = '<nav class="navbar navbar-fixed-top navbar-custom">' ."\n";
-        $menu_list .= '<div class="container">' ."\n";
+        $menu_list  = '<nav class="navbar navbar-toggleable-md navbar-fixed-top navbar-custom">' ."\n";
+        $menu_list .= '<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">' ."\n";
+        $menu_list .= '<i class="fa fa-bars navbar-toggler-icon" aria-hidden="true"></i>' ."\n";
+        $menu_list .= '</button>' ."\n";
+        $menu_list .= '' ."\n";
+        $menu_list .= '<div class="container nav-container">' ."\n";
         $menu_list .= '<a class="navbar-brand" href="' . home_url() . '">' . get_bloginfo( 'name' ) . '</a>';
-           
-        $menu_list .= '<!-- Collect the nav links, forms, and other content for toggling -->';
-         
-         
+        
+        $menu_list .= '<!-- Collect the nav links, forms, and other content for toggling -->' ."\n";
+        $menu_list .= '<div class="collapse navbar-collapse" id="navbar" aria-expanded="false">' ."\n";
+        
         $menu = get_term( $locations[$theme_location], 'nav_menu' );
         $menu_items = wp_get_nav_menu_items($menu->term_id);
  
-        $menu_list .= '<ul class="nav navbar-nav">' ."\n";
+        $menu_list .= '<ul class="nav navbar-nav mr-auto">' ."\n";
           
         foreach( $menu_items as $menu_item ) {
             if( $menu_item->menu_item_parent == 0 ) {
@@ -112,6 +116,7 @@ function create_bootstrap_menu( $theme_location ) {
         }
           
         $menu_list .= '</ul>' ."\n";
+        $menu_list .= '</div>' ."\n";
         $menu_list .= '</div>' ."\n";
         $menu_list .= '</div><!-- /.container -->' ."\n";
         $menu_list .= '</nav>' ."\n";

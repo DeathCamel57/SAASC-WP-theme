@@ -10,3 +10,10 @@ if (!window.keydown) {
     }, 2000);
 }
 */
+
+// For the Dropdown navigation bar
+$(document).ready(function () {
+  $('[data-toggle="offcanvas"]').click(function () {
+    $('.row-offcanvas').toggleClass('active')
+  });
+});
