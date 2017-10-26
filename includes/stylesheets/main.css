@@ -131,6 +131,8 @@ li a {
 .copyright {
   color: #5596d6;
   text-align: right;
+  margin-bottom: 0px;
+  margin-right: 5px;
 }
 
 html,
