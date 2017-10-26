@@ -4,6 +4,7 @@ node_js:
 before_install:
     - sudo apt-get -qq update
     - npm install -g grunt-cli
+    - gem install sass
     - sudo apt-get install -y ruby
     - npm install grunt@0.4.1
     - npm install grunt-contrib-sass@0.7.4
