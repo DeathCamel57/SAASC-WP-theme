@@ -11,7 +11,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: ['includes/sass/*.scss'],
-                tasks: ['postcss', 'sass', 'copy'],
+                tasks: ['postcss', 'sass', 'copy', 'clean', 'webshot'],
                 options: {
                     spawn: false,
                 }   
@@ -37,10 +37,7 @@ module.exports = function(grunt) {
             options: {
                 failOnError: true,
                 syntax: require('postcss-scss'),
-                diff: 'includes/stylesheets/*.patch',
-                map: {
-                    inline: false
-                },
+                map: false,
                 processors: [
                     require('pixrem')(),
                     require('autoprefixer')({
@@ -172,6 +169,9 @@ module.exports = function(grunt) {
             },  
             notfound_xl: {  
                 options: {  
+                    phantomConfig: {
+                        force: true,
+                    },
                     siteType: 'url',  
                     site: 'http://172.18.0.3/notfound',  
                     savePath: './docs/screenshots/desktop_xl-404.png',  
@@ -187,6 +187,9 @@ module.exports = function(grunt) {
             },  
             notfound_l: {  
                 options: {  
+                    phantomConfig: {
+                        force: true,
+                    },
                     siteType: 'url',  
                     site: 'http://172.18.0.3/notfound',  
                     savePath: './docs/screenshots/desktop_l-404.png',  
@@ -202,6 +205,9 @@ module.exports = function(grunt) {
             },  
             notfound_m: {  
                 options: {  
+                    phantomConfig: {
+                        force: true,
+                    },
                     siteType: 'url',  
                     site: 'http://172.18.0.3/notfound',  
                     savePath: './docs/screenshots/desktop_m-404.png',  
@@ -217,6 +223,9 @@ module.exports = function(grunt) {
             },  
             notfound_s: {  
                 options: {  
+                    phantomConfig: {
+                        force: true,
+                    },
                     siteType: 'url',  
                     site: 'http://172.18.0.3/notfound',  
                     savePath: './docs/screenshots/desktop_s-404.png',  
@@ -232,6 +241,9 @@ module.exports = function(grunt) {
             },  
             notfound_xs: {  
                 options: {  
+                    phantomConfig: {
+                        force: true,
+                    },
                     siteType: 'url',  
                     site: 'http://172.18.0.3/notfound',  
                     savePath: './docs/screenshots/desktop_xs-404.png',  
@@ -245,6 +257,10 @@ module.exports = function(grunt) {
                     }  
                 }  
             }
+        },
+        
+        clean: {
+            screenshots: 'docs/screenshots/'
         }
 
     });
@@ -253,6 +269,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-webshot');
     grunt.loadNpmTasks('grunt-postcss');
 
