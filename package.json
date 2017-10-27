@@ -2,10 +2,15 @@
   "name": "",
   "version": "0.1.0",
   "devDependencies": {
+    "autoprefixer": "^7.1.6",
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-sass": "^0.7.4",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-postcss": "^0.9.0",
     "grunt-webshot": "^0.3.0"
+  },
+  "dependencies": {
+    "postcss-scss": "^1.0.2"
   }
 }
