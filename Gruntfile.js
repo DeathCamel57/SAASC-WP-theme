@@ -15,8 +15,11 @@ module.exports = function(grunt) {
                 options: {
                     spawn: false,
                 }   
+            },
+            php: {
+                files: ['*.php', 'includes/themetacular/*.php'],
+                tasks: ['copy', 'clean', 'webshot']
             }
-
         },
 
         sass: {
@@ -57,7 +60,7 @@ module.exports = function(grunt) {
         copy: {
             main: {
                 files: [
-                    {expand: true, src: ['includes/**'], dest: 'docker/wordpress/wp-content/themes/SAASC-WP-theme/includes'},
+                    {expand: true, src: ['includes/**'], dest: 'docker/wordpress/wp-content/themes/SAASC-WP-theme'},
                     {expand: true, src: ['screenshot.png'], dest: 'docker/wordpress/wp-content/themes/SAASC-WP-theme'},
                     {expand: true, src: ['style.css'], dest: 'docker/wordpress/wp-content/themes/SAASC-WP-theme'},
                     {expand: true, src: ['404.php'], dest: 'docker/wordpress/wp-content/themes/SAASC-WP-theme'},
@@ -92,8 +95,25 @@ module.exports = function(grunt) {
         },
         
         webshot: {  
+            homepage_xl_themeimage: {  
+                options: {  
+                    phantomPath: require('phantomjs2').path,
+                    siteType: 'url',  
+                    site: 'http://172.18.0.3/',  
+                    savePath: 'screenshot.png',  
+                    windowSize: {  
+                        width: 1280,  
+                        height: 720  
+                    },  
+                    shotSize: {  
+                        width: 1280,  
+                        height: 'all'  
+                    }  
+                }  
+            },
             homepage_xl: {  
                 options: {  
+                    phantomPath: require('phantomjs2').path,
                     siteType: 'url',  
                     site: 'http://172.18.0.3/',  
                     savePath: './docs/screenshots/desktop_xl-home.png',  
@@ -109,6 +129,7 @@ module.exports = function(grunt) {
             },  
             homepage_l: {  
                 options: {  
+                    phantomPath: require('phantomjs2').path,
                     siteType: 'url',  
                     site: 'http://172.18.0.3/',  
                     savePath: './docs/screenshots/desktop_l-home.png',  
@@ -124,6 +145,7 @@ module.exports = function(grunt) {
             },  
             homepage_m: {  
                 options: {  
+                    phantomPath: require('phantomjs2').path,
                     siteType: 'url',  
                     site: 'http://172.18.0.3/',  
                     savePath: './docs/screenshots/desktop_m-home.png',  
@@ -139,6 +161,7 @@ module.exports = function(grunt) {
             },  
             homepage_s: {  
                 options: {  
+                    phantomPath: require('phantomjs2').path,
                     siteType: 'url',  
                     site: 'http://172.18.0.3/',  
                     savePath: './docs/screenshots/desktop_s-home.png',  
@@ -154,6 +177,7 @@ module.exports = function(grunt) {
             },  
             homepage_xs: {  
                 options: {  
+                    phantomPath: require('phantomjs2').path,
                     siteType: 'url',  
                     site: 'http://172.18.0.3/',  
                     savePath: './docs/screenshots/desktop_xs-home.png',  
@@ -169,6 +193,7 @@ module.exports = function(grunt) {
             },  
             notfound_xl: {  
                 options: {  
+                    phantomPath: require('phantomjs2').path,
                     phantomConfig: {
                         force: true,
                     },
@@ -187,6 +212,7 @@ module.exports = function(grunt) {
             },  
             notfound_l: {  
                 options: {  
+                    phantomPath: require('phantomjs2').path,
                     phantomConfig: {
                         force: true,
                     },
@@ -205,6 +231,7 @@ module.exports = function(grunt) {
             },  
             notfound_m: {  
                 options: {  
+                    phantomPath: require('phantomjs2').path,
                     phantomConfig: {
                         force: true,
                     },
@@ -223,6 +250,7 @@ module.exports = function(grunt) {
             },  
             notfound_s: {  
                 options: {  
+                    phantomPath: require('phantomjs2').path,
                     phantomConfig: {
                         force: true,
                     },
@@ -241,6 +269,7 @@ module.exports = function(grunt) {
             },  
             notfound_xs: {  
                 options: {  
+                    phantomPath: require('phantomjs2').path,
                     phantomConfig: {
                         force: true,
                     },
