@@ -6,7 +6,6 @@ before_install:
     - npm install grunt@0.4.5
     - npm install grunt-contrib-sass@0.7.4
     - npm install grunt-contrib-watch@1.0.0
-    - npm install grunt-webshot
     - npm install grunt-postcss
     - npm install pixrem
     - npm install cssnano
