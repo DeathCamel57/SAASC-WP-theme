@@ -37,15 +37,6 @@ $retina-suffix: '@2x';
 @mixin keyframes($animation-name) {
     @-webkit-keyframes #{$animation-name} {
         @content;
-    }
-    @-moz-keyframes #{$animation-name} {
-        @content;
-    }  
-    @-ms-keyframes #{$animation-name} {
-        @content;
-    }
-    @-o-keyframes #{$animation-name} {
-        @content;
     }  
     @keyframes #{$animation-name} {
         @content;
@@ -54,9 +45,6 @@ $retina-suffix: '@2x';
 
 @mixin animation($str) {
   -webkit-animation: #{$str};
-  -moz-animation: #{$str};
-  -ms-animation: #{$str};
-  -o-animation: #{$str};
   animation: #{$str};      
 }
 
