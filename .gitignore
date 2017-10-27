@@ -6,3 +6,6 @@ node_modules/*
 includes/bootstrap-3.3.7/node_modules/*
 docker/*
 docs/*
+
+Gruntfile.js
+package.json
