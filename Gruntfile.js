@@ -11,7 +11,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: ['includes/sass/*.scss'],
-                tasks: ['sass', 'copy'],
+                tasks: ['postcss', 'sass', 'copy'],
                 options: {
                     spawn: false,
                 }   
@@ -31,6 +31,30 @@ module.exports = function(grunt) {
                     'includes/stylesheets/main.css': 'includes/sass/main.scss'
                 }
             } 
+        },
+        
+        postcss: {
+            options: {
+                failOnError: true,
+                syntax: require('postcss-scss'),
+                diff: 'includes/stylesheets/*.patch',
+                map: {
+                    inline: false
+                },
+                processors: [
+                    require('pixrem')(),
+                    require('autoprefixer')({
+                        browsers: [
+                            '> 5%',
+                            'last 2 versions',
+                            'unreleased versions'
+                        ]
+                    })
+                ]
+            },
+            dist: {
+                src: 'includes/sass/*.scss'
+            }
         },
         
         copy: {
@@ -68,6 +92,159 @@ module.exports = function(grunt) {
                     {expand: true, src: ['style.css'], dest: 'docker/wordpress/wp-content/themes/SAASC-WP-theme'}
                 ]
             }
+        },
+        
+        webshot: {  
+            homepage_xl: {  
+                options: {  
+                    siteType: 'url',  
+                    site: 'http://172.18.0.3/',  
+                    savePath: './docs/screenshots/desktop_xl-home.png',  
+                    windowSize: {  
+                        width: 1280,  
+                        height: 720  
+                    },  
+                    shotSize: {  
+                        width: 1280,  
+                        height: 'all'  
+                    }  
+                }  
+            },  
+            homepage_l: {  
+                options: {  
+                    siteType: 'url',  
+                    site: 'http://172.18.0.3/',  
+                    savePath: './docs/screenshots/desktop_l-home.png',  
+                    windowSize: {  
+                        width: 992,  
+                        height: 720  
+                    },  
+                    shotSize: {  
+                        width: 992,  
+                        height: 'all'  
+                    }  
+                }  
+            },  
+            homepage_m: {  
+                options: {  
+                    siteType: 'url',  
+                    site: 'http://172.18.0.3/',  
+                    savePath: './docs/screenshots/desktop_m-home.png',  
+                    windowSize: {  
+                        width: 768,  
+                        height: 720  
+                    },  
+                    shotSize: {  
+                        width: 768,  
+                        height: 'all'  
+                    }  
+                }  
+            },  
+            homepage_s: {  
+                options: {  
+                    siteType: 'url',  
+                    site: 'http://172.18.0.3/',  
+                    savePath: './docs/screenshots/desktop_s-home.png',  
+                    windowSize: {  
+                        width: 576,  
+                        height: 720  
+                    },  
+                    shotSize: {  
+                        width: 576,  
+                        height: 'all'  
+                    }  
+                }  
+            },  
+            homepage_xs: {  
+                options: {  
+                    siteType: 'url',  
+                    site: 'http://172.18.0.3/',  
+                    savePath: './docs/screenshots/desktop_xs-home.png',  
+                    windowSize: {  
+                        width: 575,  
+                        height: 720  
+                    },  
+                    shotSize: {  
+                        width: 575,  
+                        height: 'all'  
+                    }  
+                }  
+            },  
+            notfound_xl: {  
+                options: {  
+                    siteType: 'url',  
+                    site: 'http://172.18.0.3/notfound',  
+                    savePath: './docs/screenshots/desktop_xl-404.png',  
+                    windowSize: {  
+                        width: 1280,  
+                        height: 720  
+                    },  
+                    shotSize: {  
+                        width: 1280,  
+                        height: 'all'  
+                    }  
+                }  
+            },  
+            notfound_l: {  
+                options: {  
+                    siteType: 'url',  
+                    site: 'http://172.18.0.3/notfound',  
+                    savePath: './docs/screenshots/desktop_l-404.png',  
+                    windowSize: {  
+                        width: 992,  
+                        height: 720  
+                    },  
+                    shotSize: {  
+                        width: 992,  
+                        height: 'all'  
+                    }  
+                }  
+            },  
+            notfound_m: {  
+                options: {  
+                    siteType: 'url',  
+                    site: 'http://172.18.0.3/notfound',  
+                    savePath: './docs/screenshots/desktop_m-404.png',  
+                    windowSize: {  
+                        width: 768,  
+                        height: 720  
+                    },  
+                    shotSize: {  
+                        width: 768,  
+                        height: 'all'  
+                    }  
+                }  
+            },  
+            notfound_s: {  
+                options: {  
+                    siteType: 'url',  
+                    site: 'http://172.18.0.3/notfound',  
+                    savePath: './docs/screenshots/desktop_s-404.png',  
+                    windowSize: {  
+                        width: 576,  
+                        height: 720  
+                    },  
+                    shotSize: {  
+                        width: 576,  
+                        height: 'all'  
+                    }  
+                }  
+            },  
+            notfound_xs: {  
+                options: {  
+                    siteType: 'url',  
+                    site: 'http://172.18.0.3/notfound',  
+                    savePath: './docs/screenshots/desktop_xs-404.png',  
+                    windowSize: {  
+                        width: 575,  
+                        height: 720  
+                    },  
+                    shotSize: {  
+                        width: 575,  
+                        height: 'all'  
+                    }  
+                }  
+            }
         }
 
     });
@@ -76,6 +253,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-webshot');
+    grunt.loadNpmTasks('grunt-postcss');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('dev', ['watch','sass']);
