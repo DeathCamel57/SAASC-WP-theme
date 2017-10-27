@@ -8,5 +8,5 @@ Third, upload zip file to WP in themes section...
 Lastly, enable the theme in themes section...
 
 # What does this look like?
-## (Automaticaly updated each commit)
+`(Automaticaly updated each commit)`
 ![Image](screenshot.png)
