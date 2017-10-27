@@ -3,13 +3,15 @@ node_js:
     - "node"
 before_install:
     - sudo apt-get -qq update
-    - npm install -g grunt-cli
-    - gem install compass
     - sudo apt-get install -y ruby
+    - npm install -g grunt-cli
     - npm install grunt@0.4.1
     - npm install grunt-contrib-sass@0.7.4
     - npm install grunt-contrib-watch@1.0.0
+    - gem install compass
 install:
     - npm install
 before_script:
     - grunt sass
+after_success:
+    - 
