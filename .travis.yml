@@ -15,6 +15,7 @@ before_install:
     - gem install compass
 install:
     - npm install
-before_script:
-    - grunt postcss
-    - grunt sass
+"scripts": {
+        "clean": "grunt postcss",
+        "buildsass": "grunt sass"
+    }
