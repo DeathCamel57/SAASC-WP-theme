@@ -12,6 +12,3 @@ before_install:
 install:
     - npm install
 before_script:
-    - grunt sass
-after_success:
-    - 
