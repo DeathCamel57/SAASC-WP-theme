@@ -42,7 +42,6 @@ module.exports = function(grunt) {
                 syntax: require('postcss-scss'),
                 map: false,
                 processors: [
-                    require('pixrem')(),
                     require('autoprefixer')({
                         browsers: [
                             '> 5%',
