@@ -1,6 +1,8 @@
 language: node_js
 node_js:
     - "node"
+cache:
+    - node_modules/
 before_install:
     - npm install -g grunt-cli
     - npm install grunt@0.4.5
@@ -8,6 +10,8 @@ before_install:
     - npm install grunt-postcss
     - npm install cssnano
     - npm install phantomjs2
+    - npm install grunt-contrib-jshint --save-dev
+    - npm install grunt-phantomas --save-dev
     - npm remove grunt-autoprefixer
     - npm install grunt-postcss autoprefixer
     - npm update caniuse-db
