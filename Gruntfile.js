@@ -9,16 +9,20 @@ module.exports = function(grunt) {
 
                 livereload: true,
             },
-            css: {
+            scss: {
                 files: ['includes/sass/*.scss'],
-                tasks: ['postcss', 'sass', 'copy', 'clean', 'webshot'],
+                tasks: ['newer:postcss', 'newer:sass', 'newer:copy', 'clean', 'webshot', 'phantomas'],
                 options: {
                     spawn: false,
                 }   
             },
             php: {
                 files: ['*.php', 'includes/themetacular/*.php'],
-                tasks: ['copy', 'clean', 'webshot']
+                tasks: ['newer:copy', 'clean', 'webshot']
+            },
+            js: {
+                files: ['includes/maptalks/maptalks-custom.js', 'includes/maptalks/maptalks.js', 'includes/js/custom.js'],
+                tasks: ['newer:jshint', 'newer:copy', 'clean', 'webshot', 'phantomas']
             }
         },
 
@@ -42,7 +46,6 @@ module.exports = function(grunt) {
                 syntax: require('postcss-scss'),
                 map: false,
                 processors: [
-                    require('pixrem')(),
                     require('autoprefixer')({
                         browsers: [
                             '> 5%',
@@ -290,6 +293,28 @@ module.exports = function(grunt) {
         
         clean: {
             screenshots: 'docs/screenshots/'
+        },
+        
+        phantomas: {
+            gruntsite: {
+                options: {
+                    indexPath: 'docs/phantomas/',
+                    url: 'http://172.18.0.3/',
+                    buildUi: true
+                }
+            }
+        },
+        
+        jshint: {
+            options: {
+                curly: true,
+                eqeqeq: true,
+                eqnull: true,
+                browser: true,
+                globals: {
+                    jQuery: true
+                }
+            }
         }
 
     });
@@ -299,8 +324,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-webshot');
     grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks('grunt-phantomas');
+    grunt.loadNpmTasks('grunt-newer');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('dev', ['watch','sass']);
