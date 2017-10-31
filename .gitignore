@@ -1,6 +1,8 @@
 .DS_store
-
+  
 .sass-cache
 .node-modules
 node_modules/*
 includes/bootstrap-3.3.7/node_modules/*
+docker/*
+docs/*
