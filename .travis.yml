@@ -3,7 +3,7 @@ node_js:
     - "node"
 before_install:
     - npm install -g grunt-cli
-    - npm install grunt@0.4.5 grunt-contrib-sass@0.7.4 grunt-postcss cssnano phantomjs2 grunt-contrib-jshint grunt-phantomas --save-dev
+    - npm install grunt@0.4.5 grunt-contrib-sass@0.7.4 grunt-postcss cssnano phantomjs2 grunt-contrib-jshint grunt-phantomas grunt-penthouse --save-dev
     - npm remove grunt-autoprefixer
     - npm install grunt-postcss autoprefixer --save-dev
     - npm update caniuse-db

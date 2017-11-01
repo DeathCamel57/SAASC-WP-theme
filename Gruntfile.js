@@ -1,3 +1,5 @@
+var siteurl = 'http://172.18.0.3/';
+
 module.exports = function(grunt) {
 
     // 1. All configuration goes here 
@@ -11,18 +13,18 @@ module.exports = function(grunt) {
             },
             scss: {
                 files: ['includes/sass/*.scss'],
-                tasks: ['newer:postcss', 'newer:sass', 'newer:copy', 'clean', 'webshot', 'phantomas'],
+                tasks: ['newer:postcss', 'newer:sass', 'newer:copy', 'clean', 'webshot', 'penthouse', 'phantomas'],
                 options: {
                     spawn: false,
                 }   
             },
             php: {
                 files: ['*.php', 'includes/themetacular/*.php'],
-                tasks: ['newer:copy', 'clean', 'webshot']
+                tasks: ['newer:copy', 'clean', 'penthouse', 'webshot']
             },
             js: {
                 files: ['includes/maptalks/maptalks-custom.js', 'includes/maptalks/maptalks.js', 'includes/js/custom.js'],
-                tasks: ['newer:jshint', 'newer:copy', 'clean', 'webshot', 'phantomas']
+                tasks: ['newer:jshint', 'newer:copy', 'clean', 'penthouse', 'webshot', 'phantomas']
             }
         },
 
@@ -102,7 +104,7 @@ module.exports = function(grunt) {
                 options: {  
                     phantomPath: require('phantomjs2').path,
                     siteType: 'url',  
-                    site: 'http://172.18.0.3/',  
+                    site: siteurl + '',  
                     savePath: 'screenshot.png',  
                     windowSize: {  
                         width: 1280,  
@@ -118,7 +120,7 @@ module.exports = function(grunt) {
                 options: {  
                     phantomPath: require('phantomjs2').path,
                     siteType: 'url',  
-                    site: 'http://172.18.0.3/',  
+                    site: siteurl + '',  
                     savePath: './docs/screenshots/desktop_xl-home.png',  
                     windowSize: {  
                         width: 1280,  
@@ -134,7 +136,7 @@ module.exports = function(grunt) {
                 options: {  
                     phantomPath: require('phantomjs2').path,
                     siteType: 'url',  
-                    site: 'http://172.18.0.3/',  
+                    site: siteurl + '',  
                     savePath: './docs/screenshots/desktop_l-home.png',  
                     windowSize: {  
                         width: 992,  
@@ -150,7 +152,7 @@ module.exports = function(grunt) {
                 options: {  
                     phantomPath: require('phantomjs2').path,
                     siteType: 'url',  
-                    site: 'http://172.18.0.3/',  
+                    site: siteurl + '',  
                     savePath: './docs/screenshots/desktop_m-home.png',  
                     windowSize: {  
                         width: 768,  
@@ -166,7 +168,7 @@ module.exports = function(grunt) {
                 options: {  
                     phantomPath: require('phantomjs2').path,
                     siteType: 'url',  
-                    site: 'http://172.18.0.3/',  
+                    site: siteurl + '',  
                     savePath: './docs/screenshots/desktop_s-home.png',  
                     windowSize: {  
                         width: 576,  
@@ -182,7 +184,7 @@ module.exports = function(grunt) {
                 options: {  
                     phantomPath: require('phantomjs2').path,
                     siteType: 'url',  
-                    site: 'http://172.18.0.3/',  
+                    site: siteurl + '',  
                     savePath: './docs/screenshots/desktop_xs-home.png',  
                     windowSize: {  
                         width: 575,  
@@ -201,7 +203,7 @@ module.exports = function(grunt) {
                         force: true,
                     },
                     siteType: 'url',  
-                    site: 'http://172.18.0.3/notfound',  
+                    site: siteurl + 'notfound',  
                     savePath: './docs/screenshots/desktop_xl-404.png',  
                     windowSize: {  
                         width: 1280,  
@@ -220,7 +222,7 @@ module.exports = function(grunt) {
                         force: true,
                     },
                     siteType: 'url',  
-                    site: 'http://172.18.0.3/notfound',  
+                    site: siteurl + 'notfound',  
                     savePath: './docs/screenshots/desktop_l-404.png',  
                     windowSize: {  
                         width: 992,  
@@ -239,7 +241,7 @@ module.exports = function(grunt) {
                         force: true,
                     },
                     siteType: 'url',  
-                    site: 'http://172.18.0.3/notfound',  
+                    site: siteurl + 'notfound',  
                     savePath: './docs/screenshots/desktop_m-404.png',  
                     windowSize: {  
                         width: 768,  
@@ -258,7 +260,7 @@ module.exports = function(grunt) {
                         force: true,
                     },
                     siteType: 'url',  
-                    site: 'http://172.18.0.3/notfound',  
+                    site: siteurl + 'notfound',  
                     savePath: './docs/screenshots/desktop_s-404.png',  
                     windowSize: {  
                         width: 576,  
@@ -277,7 +279,7 @@ module.exports = function(grunt) {
                         force: true,
                     },
                     siteType: 'url',  
-                    site: 'http://172.18.0.3/notfound',  
+                    site: siteurl + 'notfound',  
                     savePath: './docs/screenshots/desktop_xs-404.png',  
                     windowSize: {  
                         width: 575,  
@@ -299,7 +301,7 @@ module.exports = function(grunt) {
             gruntsite: {
                 options: {
                     indexPath: 'docs/phantomas/',
-                    url: 'http://172.18.0.3/',
+                    url: siteurl,
                     buildUi: true
                 }
             }
@@ -315,6 +317,16 @@ module.exports = function(grunt) {
                     jQuery: true
                 }
             }
+        },
+        
+        penthouse: {
+            extract: {
+                outfile : 'includes/stylesheets/above-the-fold.css',
+                css : 'includes/stylesheets/main.css',
+                url : siteurl,
+                width : 1920,
+                height : 1080
+            }
         }
 
     });
@@ -329,6 +341,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-phantomas');
     grunt.loadNpmTasks('grunt-newer');
+    grunt.loadNpmTasks('grunt-penthouse');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('dev', ['watch','sass']);
