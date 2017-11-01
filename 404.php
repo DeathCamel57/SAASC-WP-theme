@@ -17,22 +17,6 @@
 
 		</header>
 
-		<div class="entry">
-			<?php 
-
-			/**
-			 *  Display a list of articles that have been created
-			 * 	in the last month for the user
-			 */
-				$args = array(
-					'type' = 'montly',
-					'format' = 'html'
-					);
-
-				wp_get_archives($args);
-			?>
-		</div>
-
 	</article> <!-- .post -->
 </main>
 
