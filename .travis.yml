@@ -11,6 +11,6 @@ before_install:
 install:
     - npm install
 script: 
-    - grunt sass
-    - grunt postcss
-    - grunt jshint
+    - grunt sass -v
+    - grunt postcss -v
+    - grunt jshint -v
