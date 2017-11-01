@@ -53,6 +53,9 @@ p {
     .nav-link {
         color: rgba(255,255,255,.5);
     }
+    .dropdown.nav-item>.dropdown-menu>.nav-item>.nav-link {
+        color: #5596d6; 
+    }
 }
 
 .navbar-toggler-icon {
