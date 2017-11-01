@@ -103,12 +103,22 @@ function create_bootstrap_menu( $theme_location ) {
                 foreach( $menu_items as $submenu ) {
                     if( $submenu->menu_item_parent == $parent ) {
                         $bool = true;
-                        $menu_array[] = '<li><a href="' . $submenu->url . '" class="navbar-brand">' . $submenu->title . '</a></li>' ."\n";
+                        $menu_array[] = '<li class="nav-item"><a href="' . $submenu->url . '" class="nav-link">' . $submenu->title . '</a></li>' ."\n";
                     }
                 }
-                $menu_list .= '<li class="nav-item">' ."\n";
-                $menu_list .= '<a href="' . $menu_item->url . '" class="nav-link">' . $menu_item->title . '</a>' ."\n";
-                 
+                if ( $bool == true && count( $menu_array ) > 0 ) {
+                     
+                    $menu_list .= '<li class="dropdown nav-item">' ."\n";
+                    $menu_list .= '<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">' . $menu_item->title . ' <span class="caret"></span></a>' ."\n";
+                     
+                    $menu_list .= '<ul class="dropdown-menu">' ."\n";
+                    $menu_list .= implode( "\n", $menu_array );
+                    $menu_list .= '</ul>' ."\n";
+                     
+                } else {
+                    $menu_list .= '<li class="nav-item">' ."\n";
+                    $menu_list .= '<a href="' . $menu_item->url . '" class="nav-link">' . $menu_item->title . '</a>' ."\n";
+                }
             }
              
             // end <li>
