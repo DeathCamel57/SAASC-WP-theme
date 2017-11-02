@@ -117,7 +117,11 @@ function create_bootstrap_menu( $theme_location ) {
                      
                 } else {
                     $menu_list .= '<li class="nav-item">' ."\n";
-                    $menu_list .= '<a href="' . $menu_item->url . '" class="nav-link">' . $menu_item->title . '</a>' ."\n";
+                    if( $menu_item->url == get_permalink() ) {
+                        $menu_list .= '<a href="' . $menu_item->url . '" class="nav-link active">' . $menu_item->title . '</a>' ."\n";
+                    } else {
+                        $menu_list .= '<a href="' . $menu_item->url . '" class="nav-link">' . $menu_item->title . '</a>' ."\n";
+                    }
                 }
             }
              
