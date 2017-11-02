@@ -116,6 +116,22 @@ module.exports = function(grunt) {
                     }  
                 }  
             },
+            homepage_s_readme: {  
+                options: {  
+                    phantomPath: require('phantomjs2').path,
+                    siteType: 'url',  
+                    site: siteurl + '',  
+                    savePath: 'smalldevice-screenshot.png',  
+                    windowSize: {  
+                        width: 576,  
+                        height: 720  
+                    },  
+                    shotSize: {  
+                        width: 576,  
+                        height: 720  
+                    }  
+                }  
+            },  
             homepage_xl: {  
                 options: {  
                     phantomPath: require('phantomjs2').path,
