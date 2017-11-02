@@ -49,7 +49,8 @@ p {
   color: rgba(255, 255, 255, 0.5);
 }
 .navbar-custom .active {
-  color: #ffffff !important;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
 }
 @media (max-width: 992px) {
   .navbar-custom .dropdown.nav-item > .dropdown-menu {

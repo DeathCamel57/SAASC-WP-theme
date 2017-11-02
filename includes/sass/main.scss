@@ -54,7 +54,8 @@ p {
         color: rgba(255,255,255,.5);
     }
     .active {
-        color: #ffffff !important;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: bold;
     }
     .dropdown.nav-item>.dropdown-menu {
         @media (max-width: 992px) {
