@@ -17,7 +17,7 @@
                 </div>
                 <div class="row">
                     <div class="cold-md-12">
-                        <p class="copyright">© Copyright <?php echo date("Y"); ?> | SAASC
+                        <p class="copyright">© Copyright <?php echo date("Y"); ?> | SAASC</p>
                     </div>
                 </div>
             </div>
