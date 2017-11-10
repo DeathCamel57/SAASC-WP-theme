@@ -8,6 +8,7 @@ before_install:
     - npm install phantomjs2
     - npm remove grunt-autoprefixer
     - npm install grunt-postcss autoprefixer --save-dev
+    - npm install grunt-casperjs --save-dev
     - npm update caniuse-db
     - gem install compass
 install:

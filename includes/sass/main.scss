@@ -108,6 +108,24 @@ p {
 }
 
 // Main Body Elements
+figure.wp-caption {
+    > img {
+        border-radius: 5px;
+    }
+    > figcaption.wp-caption-text {
+        color: $text-col;
+        text-align: center;
+    }
+}
+
+// Special Post CSS
+img.wp-post-image {
+    margin-bottom: 2rem;
+}
+figure.aligncenter {
+    margin-right: auto;
+    margin-left: auto;
+}
 
 // Footer Elements
 .footer-container {

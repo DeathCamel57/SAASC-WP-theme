@@ -93,7 +93,11 @@ function create_bootstrap_menu( $theme_location ) {
         $menu_items = wp_get_nav_menu_items($menu->term_id);
  
         $menu_list .= '<ul class="nav navbar-nav mr-auto">' ."\n";
+        
+        $bool = false;
           
+        $bool = false;
+        
         foreach( $menu_items as $menu_item ) {
             if( $menu_item->menu_item_parent == 0 ) {
                  

@@ -105,4 +105,5 @@ function themetacular_customizer_styles()
 
 add_action( 'wp_head', 'themetacular_customizer_styles');
 s
+*/
 ?>
