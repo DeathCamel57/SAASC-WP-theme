@@ -70,8 +70,3 @@ if ( post_password_required() ) {
 	?>
 
 </div><!-- #comments -->
-
-
-
-
-select ngModel="string" name="string" required ngRequired="string" ngOptions="comprehension_expression"></select>
