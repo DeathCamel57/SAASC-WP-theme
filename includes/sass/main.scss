@@ -108,6 +108,18 @@ p {
 }
 
 // Main Body Elements
+.wp-caption-text {
+    color: $text-col;
+}
+
+// Special Post CSS
+img.wp-post-image {
+    margin-bottom: 2rem;
+}
+figure.aligncenter {
+    margin-right: auto;
+    margin-left: auto;
+}
 
 // Footer Elements
 .footer-container {
