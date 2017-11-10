@@ -96,6 +96,8 @@ function create_bootstrap_menu( $theme_location ) {
         
         $bool = false;
           
+        $bool = false;
+        
         foreach( $menu_items as $menu_item ) {
             if( $menu_item->menu_item_parent == 0 ) {
                  
