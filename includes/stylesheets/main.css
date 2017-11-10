@@ -104,6 +104,23 @@ p {
     display: flex !important;
   }
 }
+figure.wp-caption > img {
+  border-radius: 5px;
+}
+figure.wp-caption > figcaption.wp-caption-text {
+  color: #656565;
+  text-align: center;
+}
+
+img.wp-post-image {
+  margin-bottom: 2rem;
+}
+
+figure.aligncenter {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .footer-container {
   background-color: #004181;
   color: #5596d6;

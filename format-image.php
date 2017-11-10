@@ -13,9 +13,7 @@
 
 	<header class="post-header">
 		<h1>
-			<a href="<?php the_permalink(); ?>">
-				<?php the_title(); ?>
-			</a>
+            <?php the_title(); ?>
 		</h1>
 	</header>
 	
@@ -24,9 +22,6 @@
 		<!-- themetacular_the_content makes 'read more' default -->
 		<?php themetacular_the_content(); ?>
 	</div>
-
-	<!-- Load the comments template if single -->
-	<?php load_comment_template(); ?>
 	
 	
 </article> <!-- .post -->
