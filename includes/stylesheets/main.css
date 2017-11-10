@@ -104,8 +104,12 @@ p {
     display: flex !important;
   }
 }
-.wp-caption-text {
+figure.wp-caption > img {
+  border-radius: 5px;
+}
+figure.wp-caption > figcaption.wp-caption-text {
   color: #656565;
+  text-align: center;
 }
 
 img.wp-post-image {
