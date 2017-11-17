@@ -195,23 +195,19 @@ footer {
     left: 0;
   }
 
-  .row-offcanvas-right
-  .sidebar-offcanvas {
+  .row-offcanvas-right .sidebar-offcanvas {
     right: -100%;
   }
 
-  .row-offcanvas-right.active
-  .sidebar-offcanvas {
+  .row-offcanvas-right.active .sidebar-offcanvas {
     right: -50%;
   }
 
-  .row-offcanvas-left
-  .sidebar-offcanvas {
+  .row-offcanvas-left .sidebar-offcanvas {
     left: -100%;
   }
 
-  .row-offcanvas-left.active
-  .sidebar-offcanvas {
+  .row-offcanvas-left.active .sidebar-offcanvas {
     left: -50%;
   }
 

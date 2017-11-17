@@ -1,34 +1,33 @@
 // Font Size Fallbacks
 @function calculateRem($size) {
-  $remSize: $size / 16px;
-  @return $remSize * 1rem;
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
 }
 
 @mixin font-size($size) {
-  font-size: $size;
-  font-size: calculateRem($size);
+    font-size: $size;
+    font-size: calculateRem($size);
 }
 
 @mixin line-height($size) {
     $extra-height: 5px;
-  line-height: $size + $extra-height;
-  line-height: calculateRem($size + $extra-height);
+    line-height: $size + $extra-height;
+    line-height: calculateRem($size + $extra-height);
 }
 
 // Image Stuff...
 $image-path: '../img' !default;
 $fallback-extension: 'png' !default;
 $retina-suffix: '@2x';
-@mixin background-image($name, $size:false){
+@mixin background-image($name, $size:false) {
     background-image: url(#{$image-path}/#{$name}.svg);
-    @if($size){
+    @if($size) {
         background-size: $size;
     }
-    .no-svg &{
+    .no-svg & {
         background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
-
         @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-          background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+            background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
         }
     }
 }
@@ -37,44 +36,45 @@ $retina-suffix: '@2x';
 @mixin keyframes($animation-name) {
     @-webkit-keyframes #{$animation-name} {
         @content;
-    }  
+    }
     @keyframes #{$animation-name} {
         @content;
     }
 }
 
 @mixin animation($str) {
-  -webkit-animation: #{$str};
-  animation: #{$str};      
+    -webkit-animation: #{$str};
+    animation: #{$str};
 }
 
 // Universal Opacity Things...
 @mixin opacity($opacity) {
-  opacity: $opacity;
-  $opacity-ie: $opacity * 100;
-  filter: alpha(opacity=$opacity-ie); //IE8
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
 }
 
 // Clearfix... fix...
 %clearfix {
-  *zoom: 1;
-  &:before, &:after {
-    content: " ";
-    display: table;
-  }
-  &:after {
-    clear: both;
-  }
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
 }
 
 // Hidden Elements...
 %visuallyhidden {
-  margin: -1px;
-  padding: 0;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip: rect(0, 0, 0, 0);
-  position: absolute;
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
 }
