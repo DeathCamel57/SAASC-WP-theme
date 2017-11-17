@@ -175,16 +175,16 @@ li {
 // NAVBAR TOGGLER CSS
 html,
 body {
-  overflow-x: hidden; /* Prevent scroll on narrow devices */
+  overflow-x: hidden; // Prevent scroll on narrow devices //
 }
 footer {
   padding: 30px 0;
 }
 
-/*
- * Off Canvas
- * --------------------------------------------------
- */
+//
+// Off Canvas
+// --------------------------------------------------
+//
 @media screen and (max-width: 767px) {
   .row-offcanvas {
     position: relative;
@@ -202,36 +202,36 @@ footer {
 
   .row-offcanvas-right
   .sidebar-offcanvas {
-    right: -100%; /* 12 columns */
+    right: -100%; // 12 columns //
   }
 
   .row-offcanvas-right.active
   .sidebar-offcanvas {
-    right: -50%; /* 6 columns */
+    right: -50%; // 6 columns //
   }
 
   .row-offcanvas-left
   .sidebar-offcanvas {
-    left: -100%; /* 12 columns */
+    left: -100%; // 12 columns //
   }
 
   .row-offcanvas-left.active
   .sidebar-offcanvas {
-    left: -50%; /* 6 columns */
+    left: -50%; // 6 columns //
   }
 
   .row-offcanvas-right.active {
-    right: 50%; /* 6 columns */
+    right: 50%; // 6 columns //
   }
 
   .row-offcanvas-left.active {
-    left: 50%; /* 6 columns */
+    left: 50%; // 6 columns //
   }
 
   .sidebar-offcanvas {
     position: absolute;
     top: 0;
-    width: 50%; /* 6 columns */
+    width: 50%; // 6 columns //
   }
 }
 
